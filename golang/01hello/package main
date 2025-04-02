@@ -1,1 +1,17 @@
+What does package main mean?
 
+Executable package
+
+package main
+"main" is special
+Defines a package that can be compiled and then *executed*. Must have a func called 'main'
+
+
+Reusable package
+2 in this
+
+package calculator
+Defines a package that can be used as a dependency (helper code)
+
+package uploader
+Defines a package that can be used as a dependency (helper code)
