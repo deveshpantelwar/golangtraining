@@ -15,3 +15,9 @@ Defines a package that can be used as a dependency (helper code)
 
 package uploader
 Defines a package that can be used as a dependency (helper code)
+
+
+
+
+Import statement
+import fmt means give our package main all the code and functionality that is contained inside another package fmt
