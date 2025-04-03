@@ -15,6 +15,7 @@ func main() {
 
 	// %d integer
 	// %s string
+	// %c character
 	// %T type of the value
 	// %.3f number of float digits after dot
 
