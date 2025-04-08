@@ -28,6 +28,11 @@ func main() {
 
 	jimPointer := &jim
 	jimPointer.updateNamePointer("jimmy")
+
+	//OR jim.updateNamePointer("jimmy")
+	//go shortcut for pointer , no need to point to address
+	//can directly use pointer operator in func
+	//func (pointerToPerson *person) updateNamePointer(
 	jim.print()
 }
 
