@@ -1,0 +1,53 @@
+Interface name - bot
+
+type bot interface {
+    getGreeting(string, int) (string, error)
+}
+
+Function name - getGreeting
+List of argument types - string, int
+List of return types - string , error
+
+
+
+can list multiple functions that have to be satisfied in interface
+
+type user struct{
+    name string
+}
+
+type bot interface {
+
+    getGreeting (string, int) (string, error)
+    getBotVersion() float
+    respondToUser(user) string
+}
+
+
+Interfaces are not generic types
+Other languages have 'generic' types - go (famously) does not.
+
+
+Interfaces are 'implicit'
+We don't manually have to say that our custom type satisfies 
+some interface.
+
+
+Interfaces are a contract to help us manage types
+GARBAGE IN -> GARBAGE OUT. If our custom type's implementation 
+of a function is broken then interfaces wont help us!
+
+
+Interfaces are tough. Step #1 is understanding how to read them
+Understand how to read interfaces in the standard lib. 
+Writing your own interfaces is tough and requires experience
+
+
+
+-----------------------------------
+why use interface
+different sources of input may provide different types of return 
+values. differentreturn values will need different print functions
+to print them so to solve this problems interface is used 
+- interface provide a common reader method to read all input
+and give a output data that anyone can work with
