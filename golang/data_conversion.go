@@ -34,4 +34,10 @@ func main() {
 	fmt.Println("number_float is", number_float)
 	fmt.Printf("Type of number Loat is %T\n", number_float)
 
+
+	//float to string
+	s := fmt.Sprintf("%f", 123.456) // s == "123.456000"
+	fmt.Println("string of float is :", s)
+	fmt.Printf("type is %T\n", s)
+
 }
