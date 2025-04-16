@@ -1,0 +1,54 @@
+🔹 Code Summary:
+Tum ek list of words loop kar rahe ho, har word ko ek alag goroutine mein print karwa rahe ho. Fir uske baad ek extra message print kar rahe ho. 
+Saara sync WaitGroup ke through ho raha hai.
+
+💡 Goroutines Kya Hain?
+Go ka tareeqa hai concurrent code run karne ka.
+Jab tum go printSomething(...) likhte ho, toh woh function asynchronously (side-by-side) run hota hai.
+Matlab main program rukta nahi, sidha next line pe chala jata hai.
+
+🔧 sync.WaitGroup Kya Karta Hai?
+Ye ek tarike ka counter hai.    -- WaitGroup	Sync karta hai goroutines ko
+WaitGroup ek Go ka sync tool hai jo help karta hai ye track karne mein ki kitni goroutines (parallel tasks) chal rahi hain, 
+aur jab tak wo sab complete nahi hoti, main program ruk jata hai.
+
+Jab bhi tum ek new goroutine start karte ho, wg.Add(1) likhte ho.
+Jab wo goroutine kaam khatam karti hai, toh wo wg.Done() call karti hai.
+Fir wg.Wait() program ko tab tak rok ke rakhta hai, jab tak saare Add ki matching Done nahi ho jati.
+
+🔍 Step-by-Step Breakdown:
+    1. WaitGroup Banaya
+    var wg sync.WaitGroup
+
+    Ek wg naam ka WaitGroup banaya, jo track karega kitne goroutines pending hain.
+
+    2. List of Words
+    words := []string{"alpha", "beta", "gamma", "delta", "theta"}
+    Ek string slice banaya jisme 5 words hain.
+
+    3. wg.Add(5)
+    Bataya ki 5 goroutines aane wali hain — ek har word ke liye.
+
+    4. Loop + Goroutines
+    for i, x := range words {
+	    go printSomething(fmt.Sprintf("%v : %v", i, x), &wg)
+    }
+    Har word ke liye ek goroutine banayi ja rahi hai.
+
+    fmt.Sprintf(...) se formatted string ban rahi hai.
+    &wg pass kiya ja raha hai so that har function apna kaam khatam hone par wg.Done() call kare.
+
+    5. wg.Wait()
+    Yahan program rukta hai.
+
+    Jab tak 5 goroutines Done() nahi bolti, yeh line ke baad ka code nahi chalega.
+
+
+📌 In Short:
+
+Concept	Explanation
+go	Start a new goroutine (parallel task)
+WaitGroup	Sync karta hai goroutines ko
+Add(n)	Batata hai kitne kaam hone wale hain
+Done()	Ek kaam khatam hua
+Wait()	Ruk ja jab tak saare kaam khatam na ho jaye
